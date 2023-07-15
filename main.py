@@ -2,7 +2,7 @@ import tkinter
 from tkinter import *
 
 window = Tk()
-window.geometry("370x400")
+window.geometry("370x480")
 window.title("Calculator")
 window.configure(bg="light gray")
 
@@ -17,12 +17,18 @@ def button_clicked(btnValue):
     global buttonclick
     buttonclick = buttonclick + str(btnValue)
     input_text.set(buttonclick)
+    result = (eval(buttonclick))
+    input_text2.set(result)
+
 
 input_text = StringVar()
+input_text2= StringVar()
 
 
 def equal_btnclick():
-    
+    result = (eval(buttonclick))
+    input_text.set(result)
+
 
 
 def clear_input():
@@ -34,10 +40,14 @@ def clear_input():
 # display--------------------------------------------------
 Display_frame = Frame(window)
 Display_frame.pack()
-label = tkinter.Label(Display_frame, textvariable=input_text, width=48, bg="light gray", font=("Arial", 40, "bold"),
+label = tkinter.Label(Display_frame, textvariable=input_text, width=28, bg="light gray", font=("Arial", 30, "bold"),
+                      anchor=tkinter.E,
+                      padx=24, pady=15, fg="#000000")
+label1 = tkinter.Label(Display_frame, textvariable=input_text2, width=48, bg="light gray", font=("Arial", 40, "bold"),
                       anchor=tkinter.E,
                       padx=24, pady=30, fg="#000000")
 label.pack(expand=True, fill='both')
+label1.pack(expand=True, fill='both')
 
 # button--------------------------------------------------
 button_frame = Frame(window, bg="light gray", height=221, pady=0, padx=1)
