@@ -6,48 +6,25 @@ window.geometry("370x400")
 window.title("Calculator")
 window.configure(bg="light gray")
 
+operator = ""
+buttonclick = ""
+oldValue = ""
+newvalue = ""
+result = ""
+
 
 def button_clicked(btnValue):
     global buttonclick
     buttonclick = buttonclick + str(btnValue)
     input_text.set(buttonclick)
 
-
 input_text = StringVar()
 
 
-def operatorbtn(opr):
-    operator = opr
-    global buttonclick
-    global oldvalue
-    oldvalue = int(buttonclick)
-    buttonclick = ""
-    input_text.set(buttonclick)
-
-
 def equal_btnclick():
-    global operator
-    global buttonclick
-    global oldValue
-    global newvalue
-    global result
-    newvalue = int(buttonclick)
+    
 
-    if operator == 1:
-        result=oldValue+newvalue
-        input_text.set(result)
 
-    elif operator==2:
-        result=oldValue-newvalue
-        input_text.set(result)
-
-    elif operator==3:
-        result=oldValue*newvalue
-        input_text.set(result)
-
-    elif operator==4:
-        result=oldValue/newvalue
-        input_text.set(result)
 def clear_input():
     global buttonclick
     buttonclick = ""
@@ -68,16 +45,16 @@ button_frame.pack(expand=True, fill="both")
 
 # firstRow-------------------------------------------------
 add = Button(button_frame, text="+", fg="#25265E", width=12, height=3, bd=0, bg="#F5F5F5", cursor="hand2",
-             command=lambda: operatorbtn(1)).grid(row=1, column=0, padx=1, pady=1)
+             command=lambda: button_clicked("+")).grid(row=1, column=0, padx=1, pady=1)
 
 sub = Button(button_frame, text="-", fg="#25265E", width=12, height=3, bd=0, bg="#F5F5F5", cursor="hand2",
-             command=lambda: operatorbtn(2)).grid(row=1, column=1, padx=1, pady=1)
+             command=lambda: button_clicked("-")).grid(row=1, column=1, padx=1, pady=1)
 
 multi = Button(button_frame, text="x", fg="#25265E", width=12, height=3, bd=0, bg="#F5F5F5", cursor="hand2",
-               command=lambda: operatorbtn(3)).grid(row=1, column=2, padx=1, pady=1)
+               command=lambda: button_clicked("*")).grid(row=1, column=2, padx=1, pady=1)
 
 div = Button(button_frame, text="/", fg="#25265E", width=12, height=3, bd=0, bg="#F5F5F5", cursor="hand2",
-             command=lambda: operatorbtn(4)).grid(row=1, column=3, padx=1, pady=1)
+             command=lambda: button_clicked("/")).grid(row=1, column=3, padx=1, pady=1)
 
 # secondRow----------------------------------------------------------
 seven = Button(button_frame, text="7", fg="#25265E", width=12, height=3, bd=0, bg="#F5F5F5", cursor="hand2",
