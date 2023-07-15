@@ -1,3 +1,4 @@
 # PyCalc
 
-![calculator](https://github.com/mashroofmashru/PyCalc/assets/136979239/37ed6940-63cd-4be8-8b90-d8623d582e37)
+
+![calculator](https://github.com/mashroofmashru/PyCalc/assets/136979239/cdf8ca63-95f5-47ca-a61c-3762e6a5671a)
